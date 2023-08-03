@@ -1,0 +1,14 @@
+Projeto: Gerenciador de Tarefas (To-Do List)
+
+Descrição:
+Um gerenciador de tarefas (To-Do List) é uma aplicação que permite ao usuário criar, visualizar, atualizar e excluir tarefas a serem realizadas. Esse tipo de projeto é muito popular e pode demonstrar suas habilidades em programação, manipulação de dados e interação com o usuário.
+
+Funcionalidades:
+
+Criar uma tarefa: O usuário poderá adicionar uma nova tarefa, informando título e descrição.
+Listar tarefas: Exibir a lista de tarefas disponíveis, mostrando o título e status de cada uma (pendente ou concluída).
+Atualizar tarefa: Permitir que o usuário marque uma tarefa como concluída ou edite o título e descrição de uma tarefa existente.
+Excluir tarefa: Dar ao usuário a opção de remover uma tarefa da lista.
+
+Esse projeto demonstra as habilidades em manipulação de dados, estruturas de controle e funções em Python.
+Mostra a capacidade de lidar com entrada/saída de dados e persistência de informações.
