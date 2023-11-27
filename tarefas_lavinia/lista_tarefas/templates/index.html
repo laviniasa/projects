@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            background-color: #ecf0f1;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Adicione este bloco de estilo para tarefas concluídas */
+        li.completed {
+            background-color: #d5e8d4; /* Cor de fundo para tarefas concluídas */
+        }
+
+        form {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #34495e;
+        }
+
+        input {
+            width: 70%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .task-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        button {
+            margin-left: 10px;
+            padding: 10px;
+            background-color: #2ecc71;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #27ae60;
+        }
+
+        a {
+            text-decoration: none;
+            color: #e74c3c;
+            font-size: 18px;
+            margin-left: 10px;
+        }
+
+        a:hover {
+            color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Tarefas</h1>
+    <ul>
+        {% for task in tasks %}
+            <li {% if task.completed %}class="completed"{% endif %}>
+                <span>{{ task.text }}</span>
+                <div class="task-actions">
+                    <a href="{{ url_for('complete_task', task_id=loop.index-1) }}">✅</a>
+                    <a href="{{ url_for('edit_task', task_id=loop.index-1) }}">✎</a>
+                    <a href="{{ url_for('delete_task', task_id=loop.index-1) }}">❌</a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    <form action="{{ url_for('add_task') }}" method="post">
+        <label for="task">Nova Tarefa:</label>
+        <input type="text" id="task" name="task" required>
+        <button type="submit">Adicionar Tarefa</button>
+    </form>
+</body>
+</html>
