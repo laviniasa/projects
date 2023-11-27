@@ -1,6 +1,0 @@
-CREATE TABLE tarefas (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    descricao VARCHAR(255) NOT NULL,
-    data_termino DATE NOT NULL,
-    status VARCHAR(20) NOT NULL
-);
